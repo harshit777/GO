@@ -9,6 +9,8 @@ import "fmt"
 
 type deck []string
 
+//creating a new Deck function to call the function of cards
+
 func newDeck() deck {
 	cards := deck{}
 
