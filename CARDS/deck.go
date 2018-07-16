@@ -2,7 +2,11 @@
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"io/ioutil"
+	"strings"
+)
 
 // Create a new type of deck
 //which is a type of string
@@ -35,6 +39,25 @@ func (d deck) print() {
 	}
 }
 
-func deal(d deck, handSize int) {
+func deal(d deck, handSize int) (deck, deck) {
+	return d[:handSize], d[handSize:]
+
+}
+
+//to convert a deck into a string
+// using both reciever and the function to convert the the deck into the string
+//converting slice of deck to slice of string and then converting the slice of string
+//into a single string separated by commas
+
+func (d deck) toString() string {
+	return strings.Join([]string(d), ",") //strings package used
+
+}
+
+//saving the deck to the hardrive
+//0666 is the default permission for any file
+
+func (d deck) saveToFile(filename string) error {
+	return ioutil.WriteFile(filename, []byte(d.toString()), 0666)
 
 }

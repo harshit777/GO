@@ -1,0 +1,6 @@
+Reciever function is useful as it helps to call the 
+method directly to be accessible as 
+in this case 
+
+cards.toString()
+cards.savetoFile()
